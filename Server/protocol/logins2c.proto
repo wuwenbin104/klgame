@@ -1,0 +1,14 @@
+package KLGame
+option optimize_for = LITE_RUNTIME;
+import "protocol/common.proto";
+//登陆成功
+message LoginSuccess
+{
+    required    UserInfo    myUserInfo=1;   //登陆账号用户信息
+}
+//登陆失败
+message LoginFail
+{
+    required    int32   ErrorCode=1;        //失败错误码
+    required    string  szMsg=2;            //错误描述
+}

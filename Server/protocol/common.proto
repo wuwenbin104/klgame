@@ -1,0 +1,89 @@
+syntax = "proto3";
+package klgame;
+message  MessageFinish{
+		int32 		 MsgID=1;
+		bytes		 MsgBody=2;
+} 
+//用户信息
+message UserInfo
+{
+    	int32			FaceID=1;							//头像ID
+		int32			UserID=2;							//用户ID
+		int32			GameID=3;							//游戏ID
+    	int32			nVipLevel=4;						//用户等级
+        int32           nUserType=5;                        //用户类型
+		int32			Gender=6;							//性别
+		string			NickName=7;						//用户昵称
+		string			szUnderWrite=8;					//个性签名
+	 	tagUserScore	userScore=9;						//用户分数							
+	 	tagUserStatus	userStatus=10;						//用户状态
+		int32			present=11;							//奖牌，奖券
+		string			customFace=12;						//自定义头像		
+		string			customFaceUrl=13;						//自定义头像	
+}
+//用户积分信息
+message tagUserScore
+{
+	optional 	int64			lScore=1;					//身上分数
+	optional 	int64			lInsureScore=2;				//银行分数
+	optional 	uint64			lWinCount=3;				//赢局
+	optional 	uint64			lLostCount=4;				//输局
+	optional 	uint64			lDrawCount=5;				//平局
+	optional 	uint64			lFleeCount=6;				//逃跑
+	optional	uint64			lExperience=7;				//经验
+	optional	int64			lStorageScore=8;			//保留积分
+	optional	int32			nPresent = 9;
+}
+//用户状态信息
+message tagUserStatus
+{
+	required 	int32			wTableID=1;					//桌子号码
+	required 	int32			wChairID=2;					//椅子位置
+	required 	int32			wUserStatus=3;				//用户状态
+}
+//游戏房间列表结构
+message tagGameServer
+{
+	required	int32			wSortID=1;							//排序号码
+	required	int32			wKindID=2;							//名称号码
+	required	int32			wServerID=3;						//房间号码
+	required	int32			wStationID=4;						//站点号码
+	required	int32			wServerPort=5;						//房间端口
+	required	int32			wServerType=6;						//房间类型
+	required	string			szTelecomServerAddr=7;				//房间电信地址
+	required	string			szCNCServerAddr=8;					//房间网通地址
+	required	int32			dwOnLineCount=9;						//在线人数
+	required	string			szServerName=10;					//房间名称						
+	optional	int32           dwSocketID=11;
+	required	string			szHtml=12;							//格式化字符串,用于显示
+	required	string			szFormatOnLineCount=13;				//在线人数格式化
+	optional 	uint32			wClientType=14;						//显示类型
+	optional	uint64			lMinEnterScore=15;					//最低进房条件
+	optional	bool			bDynamicJoin=16;					//是否允许动态加入
+	optional	int32			wTableCount=17;						//桌子数
+	optional	int32			wPlayTableCount=18;					//有人的桌子数
+	optional	bool			bBattle=19;							//约战
+	optional	int32			wChairCount=20;						//椅子数量
+	optional	int64			lCellScore=21;						//基础分
+	optional	bool			bPrimary=22;						//初级场
+	optional	uint64			lMaxEnterScore=23;					//最高进房条件
+}
+//游戏名称结构
+message tagGameKind
+{
+	required			int32					wKindID=1;							//KindID号码
+	repeated   			tagGameServer     		NodeList=2;
+}
+//游戏列表
+message GameKind_LIST
+{
+	repeated    		tagGameKind					kindList=1;
+}
+//消息
+message TagGlobalMsg
+{
+	required	int32		dwMsgType=1;
+	required	string		strMsg=2;
+	optional	int32		wparam=3;
+	optional	int32		lparam=4;
+}

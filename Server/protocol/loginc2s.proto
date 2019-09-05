@@ -1,0 +1,22 @@
+syntax = "proto3";
+package klgame;
+//账号登陆
+message AccountsLogin{
+        string   Accounts =1;       //登陆账号
+        string   Pwd = 2;           //登陆密码
+        int32    nLoginType=3;      //登陆类型
+        int32    nAreaCode =4;      //登陆区域码
+        string   szDevType=5;       //登陆设备类型
+        string   szCheckCode=6;     //验证码    
+}
+//快速登陆
+message   FastLogin
+{
+        string   macID =1;         //登陆设备标识
+        string   nickname=2;       //账号昵称
+        int32    nGender=3;        //账号性别
+        int32    nLoginType=4;      //登陆类型
+        int32    nAreaCode =5;      //登陆区域码
+        string   szDevType=6;       //登陆设备类型 
+        string   szCheckCode=7;     //验证码
+}
