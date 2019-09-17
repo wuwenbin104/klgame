@@ -1,0 +1,25 @@
+{
+  "name": "klgame",
+  "version": "1.0.0",
+  "description": "nodejs-creator 斗地主",
+  "main": "index.js",
+  "dependencies": {
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuwenbin104/klgame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wuwenbin104/klgame/issues"
+  },
+  "homepage": "https://github.com/wuwenbin104/klgame#readme"
+}
